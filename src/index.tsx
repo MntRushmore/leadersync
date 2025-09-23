@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { bearerAuth } from 'hono/bearer-auth'
+import { getCookie } from 'hono/cookie'
 import { renderer } from './renderer'
 import { LandingPage } from './pages/landing'
 import { LoginPage } from './pages/login'
@@ -88,7 +89,7 @@ const authMiddleware = async (c: any, next: any) => {
 // Optional auth middleware for pages (redirects to login)
 const pageAuthMiddleware = async (c: any, next: any) => {
   try {
-    const token = c.req.cookie('auth-token') || extractBearerToken(c.req.header('Authorization'))
+    const token = getCookie(c, 'auth-token') || extractBearerToken(c.req.header('Authorization'))
     
     if (!token) {
       return c.redirect('/login')
@@ -288,6 +289,21 @@ app.post('/api/auth/logout', authMiddleware, async (c) => {
 app.get('/api/auth/me', authMiddleware, async (c) => {
   const user = c.get('user')
   return c.json({ user })
+})
+
+// Debug endpoint to check cookies
+app.get('/api/auth/debug', (c) => {
+  const cookieHeader = c.req.header('Cookie')
+  const authHeader = c.req.header('Authorization')
+  const cookieToken = getCookie(c, 'auth-token')
+  
+  return c.json({ 
+    cookieHeader,
+    authHeader,
+    cookieToken,
+    hasDB: !!c.env.DB,
+    hasJWTSecret: !!c.env.JWT_SECRET
+  })
 })
 
 // ============= USER PROFILE API =============
