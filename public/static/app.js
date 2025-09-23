@@ -316,5 +316,29 @@ console.log(`
  - Check console for debug info
 `);
 
+// Role selection function
+function selectRole(role) {
+  console.log(`🎯 Selected role: ${role}`);
+  
+  // Store role preference in localStorage
+  localStorage.setItem('preferred_role', role);
+  
+  // Track the event
+  ConvoConnect.analytics.trackEvent('role_selected', { role: role });
+  
+  // Show notification
+  const roleName = role === 'student' ? 'Student' : 'Leader';
+  ConvoConnect.utils.showNotification(
+    `Great! You've selected ${roleName}. Redirecting to registration...`, 
+    'success'
+  );
+  
+  // Redirect to registration with role parameter
+  setTimeout(() => {
+    window.location.href = `/register?role=${role}`;
+  }, 2000);
+}
+
 // Export for global access
 window.ConvoConnect = ConvoConnect;
+window.selectRole = selectRole;

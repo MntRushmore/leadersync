@@ -278,6 +278,17 @@ export function RegisterPage() {
 
       <script dangerouslySetInnerHTML={{
         __html: `
+        // Check for role parameter and pre-select
+        const urlParams = new URLSearchParams(window.location.search)
+        const preselectedRole = urlParams.get('role')
+        if (preselectedRole && ['student', 'ceo'].includes(preselectedRole)) {
+          const roleInput = document.querySelector('input[name="role"][value="' + preselectedRole + '"]')
+          if (roleInput) {
+            roleInput.checked = true
+            roleInput.dispatchEvent(new Event('change'))
+          }
+        }
+
         // Role selection handling
         document.querySelectorAll('input[name="role"]').forEach(radio => {
           radio.addEventListener('change', function() {

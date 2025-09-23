@@ -11,6 +11,7 @@ import { DashboardPage } from './pages/dashboard'
 import { VideoCallPage } from './pages/video-call'
 import { DonationPage } from './pages/donation'
 import { AboutPage } from './pages/about'
+import { RoleSelectPage } from './pages/role-select'
 import { 
   UserService, 
   SessionService, 
@@ -109,6 +110,10 @@ app.get('/register', (c) => {
 
 app.get('/about', (c) => {
   return c.render(<AboutPage />)
+})
+
+app.get('/role-select', (c) => {
+  return c.render(<RoleSelectPage />)
 })
 
 // ============= PROTECTED PAGES =============

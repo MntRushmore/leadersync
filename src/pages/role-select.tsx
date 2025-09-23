@@ -3,131 +3,121 @@ export function RoleSelectPage() {
     <div class="min-h-screen bg-white relative overflow-hidden">
       {/* Hand-drawn background elements */}
       <div class="absolute inset-0 pointer-events-none">
-        <svg class="absolute top-20 left-20 w-40 h-40 opacity-10" viewBox="0 0 100 100">
-          <path d="M20,20 L80,20 L80,80 L20,80 Z" stroke="black" stroke-width="2" fill="none" class="animate-pulse" transform="rotate(15)" />
+        <svg class="absolute top-16 left-16 w-24 h-24 opacity-10" viewBox="0 0 100 100">
+          <path d="M20,20 Q40,10 60,30 Q80,50 60,70 Q40,90 20,70 Q10,50 20,20" stroke="black" stroke-width="2" fill="none" />
         </svg>
-        <svg class="absolute bottom-20 right-20 w-32 h-32 opacity-10" viewBox="0 0 100 100">
-          <path d="M10,90 Q50,10 90,90" stroke="black" stroke-width="2" fill="none" class="animate-bounce-slow" />
+        <svg class="absolute top-32 right-32 w-32 h-20 opacity-10" viewBox="0 0 100 50">
+          <path d="M10,25 Q30,5 50,25 Q70,45 90,25" stroke="black" stroke-width="2" fill="none" class="animate-wiggle" />
+        </svg>
+        <svg class="absolute bottom-32 left-1/3 w-28 h-28 opacity-10" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="35" stroke="black" stroke-width="2" fill="none" />
+          <circle cx="50" cy="50" r="20" stroke="black" stroke-width="1" fill="none" />
         </svg>
       </div>
 
-      <div class="relative z-10 container mx-auto px-4 py-8">
+      {/* Main Content */}
+      <div class="relative z-10 container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div class="text-center mb-12">
-          <a href="/" class="inline-block scribble-border p-3 mb-8 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
-          </a>
-          <div class="scribble-border-large inline-block p-6">
-            <h2 class="text-4xl md:text-5xl font-bold font-sketch mb-4 transform rotate-1">
-              Who are you today?
-            </h2>
-            <p class="text-xl font-handwritten max-w-2xl mx-auto">
-              Choose your role to get matched with the perfect conversation partner
-            </p>
+          <div class="scribble-border inline-block p-4 mb-6">
+            <h1 class="text-4xl md:text-5xl font-bold font-sketch transform rotate-1">
+              Choose Your Role
+            </h1>
           </div>
+          <p class="text-lg md:text-xl font-handwritten max-w-2xl mx-auto transform -rotate-1">
+            Are you a student seeking guidance or a leader ready to inspire? 
+            Select your role to get started with meaningful conversations.
+          </p>
         </div>
 
         {/* Role Selection Cards */}
-        <div class="flex flex-col md:flex-row justify-center items-center gap-12 mb-16">
-          
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
           {/* Student Card */}
-          <div class="role-card group cursor-pointer transform hover:scale-105 hover:rotate-2 transition-all duration-300" 
-               onclick="selectRole('student')">
-            <div class="scribble-card-large p-8 text-center bg-gray-50 hover:bg-gray-100">
-              <div class="text-6xl mb-6 group-hover:animate-bounce">🎓</div>
-              <h3 class="text-3xl font-bold font-sketch mb-4 transform group-hover:rotate-1">
-                I'm a Student
-              </h3>
-              <p class="text-lg font-handwritten mb-6 leading-relaxed">
-                Seeking guidance, inspiration, and insights from experienced leaders and successful professionals.
-              </p>
-              <div class="scribble-border inline-block p-3">
-                <span class="font-sketch text-lg">Click to Connect</span>
-              </div>
+          <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
+            <div class="text-6xl mb-6">🎓</div>
+            <h2 class="text-2xl md:text-3xl font-bold font-sketch mb-4 transform rotate-1">
+              I'm a Student
+            </h2>
+            <p class="font-handwritten text-lg mb-6 leading-relaxed">
+              Connect with industry leaders, successful entrepreneurs, and inspiring mentors. 
+              Get advice, insights, and guidance to shape your future career.
+            </p>
+            <div class="mb-6">
+              <h3 class="font-bold font-sketch mb-2">Perfect for:</h3>
+              <ul class="font-handwritten text-sm text-left space-y-1">
+                <li>• College & university students</li>
+                <li>• Recent graduates</li>
+                <li>• Career changers</li>
+                <li>• Aspiring entrepreneurs</li>
+              </ul>
             </div>
-          </div>
-
-          {/* VS Divider */}
-          <div class="text-center">
-            <div class="scribble-border p-4 transform rotate-45 hover:rotate-0 transition-transform duration-500">
-              <span class="text-2xl font-bold font-sketch">VS</span>
-            </div>
+            <button 
+              onclick="selectRole('student')"
+              class="scribble-button text-xl font-bold font-sketch px-8 py-4 w-full bg-blue-600 text-white hover:bg-blue-700 transform hover:rotate-1 transition-all duration-300"
+            >
+              Join as Student
+            </button>
           </div>
 
           {/* CEO/Leader Card */}
-          <div class="role-card group cursor-pointer transform hover:scale-105 hover:-rotate-2 transition-all duration-300" 
-               onclick="selectRole('ceo')">
-            <div class="scribble-card-large p-8 text-center bg-gray-50 hover:bg-gray-100">
-              <div class="text-6xl mb-6 group-hover:animate-bounce">👑</div>
-              <h3 class="text-3xl font-bold font-sketch mb-4 transform group-hover:-rotate-1">
-                I'm a CEO/Leader
-              </h3>
-              <p class="text-lg font-handwritten mb-6 leading-relaxed">
-                Ready to inspire, mentor, and share knowledge with the next generation of changemakers.
-              </p>
-              <div class="scribble-border inline-block p-3">
-                <span class="font-sketch text-lg">Click to Inspire</span>
-              </div>
+          <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
+            <div class="text-6xl mb-6">👔</div>
+            <h2 class="text-2xl md:text-3xl font-bold font-sketch mb-4 transform -rotate-1">
+              I'm a Leader
+            </h2>
+            <p class="font-handwritten text-lg mb-6 leading-relaxed">
+              Share your experience and wisdom with the next generation. 
+              Inspire students and make a lasting impact through meaningful conversations.
+            </p>
+            <div class="mb-6">
+              <h3 class="font-bold font-sketch mb-2">Perfect for:</h3>
+              <ul class="font-handwritten text-sm text-left space-y-1">
+                <li>• CEOs & executives</li>
+                <li>• Successful entrepreneurs</li>
+                <li>• Industry veterans</li>
+                <li>• Inspirational speakers</li>
+              </ul>
             </div>
+            <button 
+              onclick="selectRole('ceo')"
+              class="scribble-button text-xl font-bold font-sketch px-8 py-4 w-full bg-green-600 text-white hover:bg-green-700 transform hover:-rotate-1 transition-all duration-300"
+            >
+              Join as Leader
+            </button>
           </div>
         </div>
 
-        {/* Additional Info */}
-        <div class="text-center mb-8">
-          <div class="scribble-border inline-block p-6 max-w-2xl">
-            <h4 class="text-xl font-bold font-sketch mb-3 transform -rotate-1">How it works</h4>
-            <div class="space-y-3 font-handwritten">
-              <p>1. Choose your role above</p>
-              <p>2. We'll match you with someone complementary</p>
-              <p>3. Have a real conversation via video call</p>
-              <p>4. Support the mission with a small donation</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Loading Animation (Hidden by default) */}
-        <div id="loading" class="text-center hidden">
-          <div class="scribble-border inline-block p-6">
-            <div class="animate-spin inline-block w-8 h-8 mb-4">
-              <svg viewBox="0 0 100 100" class="w-full h-full">
-                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="4" fill="none" stroke-dasharray="60 40" />
-              </svg>
-            </div>
-            <p class="font-sketch text-xl">Finding your perfect match...</p>
-          </div>
-        </div>
-
-        {/* Back Button */}
+        {/* Bottom CTA */}
         <div class="text-center">
-          <a href="/" class="scribble-button inline-block px-6 py-3 font-sketch text-lg hover:rotate-1 transition-transform bg-gray-200 hover:bg-gray-300">
+          <div class="scribble-border inline-block p-6 bg-gray-50">
+            <p class="font-handwritten text-lg mb-4">
+              New to ConvoConnect?
+            </p>
+            <a 
+              href="/register" 
+              class="scribble-button text-lg font-bold font-sketch px-6 py-3 bg-black text-white hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 mr-4"
+            >
+              Create Account
+            </a>
+            <a 
+              href="/login" 
+              class="font-handwritten text-lg hover:underline transform hover:rotate-1 transition-transform"
+            >
+              Already have an account? Login
+            </a>
+          </div>
+        </div>
+
+        {/* Back to Home */}
+        <div class="text-center mt-8">
+          <a 
+            href="/" 
+            class="font-handwritten text-lg hover:underline transform hover:rotate-1 transition-transform"
+          >
             ← Back to Home
           </a>
         </div>
       </div>
-
-      <script dangerouslySetInnerHTML={{
-        __html: `
-        function selectRole(role) {
-          // Show loading animation
-          document.getElementById('loading').classList.remove('hidden');
-          
-          // Hide role cards
-          document.querySelectorAll('.role-card').forEach(card => {
-            card.style.opacity = '0.5';
-            card.style.pointerEvents = 'none';
-          });
-
-          // Simulate matching process
-          setTimeout(() => {
-            // Store role in sessionStorage for the video call page
-            sessionStorage.setItem('userRole', role);
-            
-            // Navigate to video call page
-            window.location.href = '/video-call';
-          }, 2000);
-        }
-        `
-      }} />
     </div>
   )
 }
