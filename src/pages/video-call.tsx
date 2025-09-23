@@ -1,4 +1,9 @@
-export function VideoCallPage() {
+interface VideoCallPageProps {
+  user: any
+  roomId: string
+}
+
+export function VideoCallPage({ user, roomId }: VideoCallPageProps) {
   return (
     <div class="min-h-screen bg-gray-900 text-white relative">
       {/* Header */}
@@ -124,138 +129,57 @@ export function VideoCallPage() {
         </div>
       </div>
 
+      <script src="/static/webrtc.js"></script>
       <script dangerouslySetInnerHTML={{
         __html: `
-        let callStartTime = Date.now();
-        let isMuted = false;
-        let isVideoOff = false;
-        let messages = [];
-
-        // Initialize the video call interface
+        // Initialize real WebRTC when page loads
         document.addEventListener('DOMContentLoaded', function() {
-          const userRole = sessionStorage.getItem('userRole') || 'student';
-          const partnerRole = userRole === 'student' ? 'CEO' : 'Student';
+          // Get user and room info from props
+          const user = ${JSON.stringify(user)};
+          const roomId = '${roomId}';
           
-          document.getElementById('userRole').textContent = userRole === 'student' ? 'Student' : 'CEO';
-          document.getElementById('partnerRole').textContent = partnerRole;
-          
-          // Update mock video icons
-          if (userRole === 'student') {
-            document.querySelector('#mockLocalVideo .text-6xl').textContent = '🎓';
-            document.querySelector('#mockPartnerVideo .text-6xl').textContent = '👑';
-          } else {
-            document.querySelector('#mockLocalVideo .text-6xl').textContent = '👑';
-            document.querySelector('#mockPartnerVideo .text-6xl').textContent = '🎓';
+          // Check authentication
+          const token = localStorage.getItem('auth-token');
+          if (!token) {
+            window.location.href = '/login';
+            return;
           }
-
-          // Start call duration timer
-          updateCallDuration();
-          setInterval(updateCallDuration, 1000);
-
-          // Simulate partner connection
-          setTimeout(() => {
-            document.querySelector('#mockPartnerVideo p').textContent = 'Connected!';
-            addSystemMessage('Partner connected! 🎉');
-          }, 2000);
+          
+          // Initialize real WebRTC
+          initializeWebRTC(roomId, user);
+          
+          console.log('🎥 Video call initialized for:', user.name, 'in room:', roomId);
         });
-
-        function updateCallDuration() {
-          const duration = Math.floor((Date.now() - callStartTime) / 1000);
-          const minutes = Math.floor(duration / 60).toString().padStart(2, '0');
-          const seconds = (duration % 60).toString().padStart(2, '0');
-          document.getElementById('callDuration').textContent = minutes + ':' + seconds;
-        }
-
-        function toggleMute() {
-          isMuted = !isMuted;
-          document.getElementById('muteIcon').textContent = isMuted ? '🔇' : '🎤';
-          addSystemMessage(isMuted ? 'Microphone muted' : 'Microphone unmuted');
-        }
-
-        function toggleVideo() {
-          isVideoOff = !isVideoOff;
-          document.getElementById('videoIcon').textContent = isVideoOff ? '📹❌' : '📹';
-          const mockVideo = document.getElementById('mockLocalVideo');
-          if (isVideoOff) {
-            mockVideo.style.background = '#1f2937';
-            mockVideo.querySelector('p').textContent = 'Video Off';
-          } else {
-            mockVideo.style.background = 'linear-gradient(to bottom right, #1d4ed8, #1e40af)';
-            mockVideo.querySelector('p').textContent = 'You';
+        
+        // Auth check function
+        async function checkAuth() {
+          const token = localStorage.getItem('auth-token');
+          if (!token) {
+            window.location.href = '/login';
+            return false;
           }
-          addSystemMessage(isVideoOff ? 'Video turned off' : 'Video turned on');
-        }
-
-        function shareScreen() {
-          addSystemMessage('Screen sharing is not available in this demo');
-        }
-
-        function sendMessage() {
-          const input = document.getElementById('chatInput');
-          const message = input.value.trim();
           
-          if (message) {
-            addMessage('You', message);
-            input.value = '';
+          try {
+            const response = await fetch('/api/auth/me', {
+              headers: { 'Authorization': 'Bearer ' + token }
+            });
             
-            // Simulate partner response
-            setTimeout(() => {
-              const responses = [
-                "That's interesting! Tell me more.",
-                "I completely understand your perspective.",
-                "Great question! Let me think about that.",
-                "I had a similar experience when I was starting out.",
-                "What specific challenges are you facing?",
-                "Have you considered trying a different approach?"
-              ];
-              const response = responses[Math.floor(Math.random() * responses.length)];
-              addMessage('Partner', response);
-            }, 1000 + Math.random() * 2000);
+            if (!response.ok) {
+              localStorage.removeItem('auth-token');
+              localStorage.removeItem('user');
+              window.location.href = '/login';
+              return false;
+            }
+            
+            return true;
+          } catch (error) {
+            console.error('Auth check failed:', error);
+            return false;
           }
         }
-
-        function handleChatEnter(event) {
-          if (event.key === 'Enter') {
-            sendMessage();
-          }
-        }
-
-        function addMessage(sender, message) {
-          const chatMessages = document.getElementById('chatMessages');
-          const messageDiv = document.createElement('div');
-          messageDiv.className = 'bg-gray-800 p-3 rounded border border-gray-600';
-          messageDiv.innerHTML = 
-            '<span class="font-sketch text-sm text-gray-300">' + sender + ':</span>' +
-            '<p class="font-handwritten text-sm mt-1">' + message + '</p>';
-          chatMessages.appendChild(messageDiv);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addSystemMessage(message) {
-          const chatMessages = document.getElementById('chatMessages');
-          const messageDiv = document.createElement('div');
-          messageDiv.className = 'bg-gray-700 p-2 rounded border border-gray-500';
-          messageDiv.innerHTML = 
-            '<span class="font-sketch text-xs text-yellow-300">System:</span>' +
-            '<p class="font-handwritten text-xs mt-1 text-yellow-200">' + message + '</p>';
-          chatMessages.appendChild(messageDiv);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function nextConversation() {
-          if (confirm('Are you sure you want to move to the next conversation?')) {
-            addSystemMessage('Finding next partner...');
-            setTimeout(() => {
-              location.reload();
-            }, 1500);
-          }
-        }
-
-        function endCall() {
-          if (confirm('Are you sure you want to end this call?')) {
-            window.location.href = '/donation';
-          }
-        }
+        
+        // Call auth check
+        checkAuth();
         `
       }} />
     </div>
