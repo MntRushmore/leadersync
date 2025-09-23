@@ -166,7 +166,8 @@ export function DonationPage() {
         </div>
       </div>
 
-      <script>
+      <script dangerouslySetInnerHTML={{
+        __html: `
         // Set user info from previous session
         document.addEventListener('DOMContentLoaded', function() {
           const userRole = sessionStorage.getItem('userRole') || 'student';
@@ -237,7 +238,8 @@ export function DonationPage() {
             setTimeout(() => messageDiv.remove(), 500);
           }, 4000);
         }, 2000);
-      </script>
+        `
+      }} />
     </div>
   )
 }

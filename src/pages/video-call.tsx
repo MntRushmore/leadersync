@@ -124,7 +124,8 @@ export function VideoCallPage() {
         </div>
       </div>
 
-      <script>
+      <script dangerouslySetInnerHTML={{
+        __html: `
         let callStartTime = Date.now();
         let isMuted = false;
         let isVideoOff = false;
@@ -255,7 +256,8 @@ export function VideoCallPage() {
             window.location.href = '/donation';
           }
         }
-      </script>
+        `
+      }} />
     </div>
   )
 }

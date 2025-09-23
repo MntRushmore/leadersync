@@ -20,23 +20,25 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/style.css" rel="stylesheet" />
         
         {/* TailwindCSS Configuration */}
-        <script>
-          tailwind.config = {
-            theme: {
-              extend: {
-                fontFamily: {
-                  'handwritten': ['Kalam', 'cursive'],
-                  'sketch': ['Architects Daughter', 'cursive'],
-                },
-                animation: {
-                  'wiggle': 'wiggle 1s ease-in-out infinite',
-                  'scribble': 'scribble 0.3s ease-in-out',
-                  'bounce-slow': 'bounce 2s infinite',
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            tailwind.config = {
+              theme: {
+                extend: {
+                  fontFamily: {
+                    'handwritten': ['Kalam', 'cursive'],
+                    'sketch': ['Architects Daughter', 'cursive'],
+                  },
+                  animation: {
+                    'wiggle': 'wiggle 1s ease-in-out infinite',
+                    'scribble': 'scribble 0.3s ease-in-out',
+                    'bounce-slow': 'bounce 2s infinite',
+                  }
                 }
               }
             }
-          }
-        </script>
+          `
+        }} />
       </head>
       <body class="bg-white text-black font-handwritten overflow-x-hidden">
         {children}

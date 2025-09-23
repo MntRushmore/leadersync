@@ -105,7 +105,8 @@ export function RoleSelectPage() {
         </div>
       </div>
 
-      <script>
+      <script dangerouslySetInnerHTML={{
+        __html: `
         function selectRole(role) {
           // Show loading animation
           document.getElementById('loading').classList.remove('hidden');
@@ -125,7 +126,8 @@ export function RoleSelectPage() {
             window.location.href = '/video-call';
           }, 2000);
         }
-      </script>
+        `
+      }} />
     </div>
   )
 }
