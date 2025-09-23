@@ -1,31 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "convoconnect",
+  "name": "leadersync",
   "compatibility_date": "2025-09-23",
   "pages_build_output_dir": "./dist",
   "compatibility_flags": [
     "nodejs_compat"
-  ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "convoconnect-production",
-      "database_id": "local-development-db"
-    }
-  ],
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "MATCHING_QUEUE",
-        "class_name": "MatchingQueue"
-      },
-      {
-        "name": "SIGNALING_SERVER",
-        "class_name": "SignalingServer"
-      }
-    ]
-  },
-  "ai": {
-    "binding": "AI"
-  }
+  ]
 }
