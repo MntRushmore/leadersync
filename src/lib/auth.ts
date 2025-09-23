@@ -3,9 +3,6 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { z } from 'zod'
 
-// JWT secret (in production, this should be in environment variables)
-const JWT_SECRET = 'convoconnect-dev-secret-change-in-production'
-
 // Validation schemas
 export const RegisterSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -99,14 +96,14 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
 }
 
 // Generate JWT token
-export function generateToken(payload: any, expiresIn: string = '7d'): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn })
+export function generateToken(payload: any, secret: string, expiresIn: string = '7d'): string {
+  return jwt.sign(payload, secret, { expiresIn })
 }
 
 // Verify JWT token
-export function verifyToken(token: string): any {
+export function verifyToken(token: string, secret: string): any {
   try {
-    return jwt.verify(token, JWT_SECRET)
+    return jwt.verify(token, secret)
   } catch (error) {
     return null
   }
@@ -291,11 +288,12 @@ export class UserService {
 
 // Session management
 export class SessionService {
-  constructor(private db: D1Database) {}
+  constructor(private db: D1Database, private jwtSecret?: string) {}
 
   async createSession(userId: string, ipAddress?: string, userAgent?: string): Promise<string> {
     const sessionId = generateId()
-    const token = generateToken({ sessionId, userId })
+    const secret = this.jwtSecret || 'convoconnect-fallback-secret'
+    const token = generateToken({ sessionId, userId }, secret)
     const tokenHash = await hashPassword(token)
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days
 
@@ -308,7 +306,8 @@ export class SessionService {
   }
 
   async validateSession(token: string): Promise<User | null> {
-    const payload = verifyToken(token)
+    const secret = this.jwtSecret || 'convoconnect-fallback-secret'
+    const payload = verifyToken(token, secret)
     if (!payload || !payload.sessionId) {
       return null
     }

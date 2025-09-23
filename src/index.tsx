@@ -25,9 +25,10 @@ import { SignalingServer, MatchingQueue } from './lib/signaling'
 // Types for Cloudflare environment
 interface Env {
   DB: D1Database
-  SIGNALING_SERVER: DurableObjectNamespace
-  MATCHING_QUEUE: DurableObjectNamespace
+  SIGNALING_SERVER?: DurableObjectNamespace
+  MATCHING_QUEUE?: DurableObjectNamespace
   AI?: any
+  JWT_SECRET: string
 }
 
 const app = new Hono<{ Bindings: Env }>()
@@ -56,40 +57,63 @@ app.use(renderer)
 
 // Authentication middleware
 const authMiddleware = async (c: any, next: any) => {
-  const token = extractBearerToken(c.req.header('Authorization'))
-  
-  if (!token) {
-    return c.json({ error: 'Authentication required' }, 401)
-  }
+  try {
+    const token = extractBearerToken(c.req.header('Authorization'))
+    
+    if (!token) {
+      return c.json({ error: 'Authentication required' }, 401)
+    }
 
-  const sessionService = new SessionService(c.env.DB)
-  const user = await sessionService.validateSession(token)
-  
-  if (!user) {
-    return c.json({ error: 'Invalid or expired session' }, 401)
-  }
+    // Check if DB is available
+    if (!c.env.DB) {
+      console.error('Database not available in authMiddleware')
+      return c.json({ error: 'Database connection error' }, 500)
+    }
 
-  c.set('user', user)
-  await next()
+    const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
+    const user = await sessionService.validateSession(token)
+    
+    if (!user) {
+      return c.json({ error: 'Invalid or expired session' }, 401)
+    }
+
+    c.set('user', user)
+    await next()
+  } catch (error) {
+    console.error('Authentication error in authMiddleware:', error)
+    return c.json({ error: 'Authentication failed', details: error.message }, 500)
+  }
 }
 
 // Optional auth middleware for pages (redirects to login)
 const pageAuthMiddleware = async (c: any, next: any) => {
-  const token = c.req.cookie('auth-token') || extractBearerToken(c.req.header('Authorization'))
-  
-  if (!token) {
+  try {
+    const token = c.req.cookie('auth-token') || extractBearerToken(c.req.header('Authorization'))
+    
+    if (!token) {
+      return c.redirect('/login')
+    }
+
+    // Check if DB is available
+    if (!c.env.DB) {
+      console.error('Database not available in pageAuthMiddleware')
+      return c.redirect('/login')
+    }
+
+    const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
+    const user = await sessionService.validateSession(token)
+    
+    if (!user) {
+      return c.redirect('/login')
+    }
+
+    c.set('user', user)
+    await next()
+  } catch (error) {
+    console.error('Authentication error in pageAuthMiddleware:', error)
+    // Clear any invalid cookies and redirect to login
     return c.redirect('/login')
   }
-
-  const sessionService = new SessionService(c.env.DB)
-  const user = await sessionService.validateSession(token)
-  
-  if (!user) {
-    return c.redirect('/login')
-  }
-
-  c.set('user', user)
-  await next()
 }
 
 // ============= PUBLIC PAGES =============
@@ -163,7 +187,7 @@ app.post('/api/auth/register', async (c) => {
     const user = await userService.createUser(userData)
     
     // Create session
-    const sessionService = new SessionService(c.env.DB)
+    const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
     const token = await sessionService.createSession(
       user.id,
       c.req.header('CF-Connecting-IP'),
@@ -217,7 +241,7 @@ app.post('/api/auth/login', async (c) => {
     await userService.updateUserStatus(userWithPassword.id, true)
     
     // Create session
-    const sessionService = new SessionService(c.env.DB)
+    const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
     const token = await sessionService.createSession(
       userWithPassword.id,
       c.req.header('CF-Connecting-IP'),
