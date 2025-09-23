@@ -7,23 +7,29 @@
 - **Inspiration**: Omegle-style matching but focused on professional mentorship
 
 ## URLs
-- **Production**: https://0dab8b96.leadersync.pages.dev/
+- **Production**: https://f9bd763d.leadersync.pages.dev/
 - **Production (Alternative)**: https://leadersync.pages.dev/
 - **GitHub**: https://github.com/MntRushmore/leadersync
+- **Role Selection**: https://f9bd763d.leadersync.pages.dev/role-select ✅ **FIXED!**
+- **Registration**: https://f9bd763d.leadersync.pages.dev/register
+- **Login**: https://f9bd763d.leadersync.pages.dev/login
 
 ## Features Implemented ✅
 
-### Authentication System
-1. **User Registration** (`/register`) - Complete signup with role selection (Student/CEO)
-2. **User Login** (`/login`) - JWT-based authentication with bcrypt password hashing  
-3. **User Dashboard** (`/dashboard`) - Role-specific dashboard with profile management
-4. **Profile Pages** (`/profile`) - User profile with industry, bio, and contact info
+### Complete User Flow
+1. **Landing Page** (`/`) - Beautiful scribble design with "Start a Conversation" CTA
+2. **Role Selection** (`/role-select`) - Interactive student vs leader choice ✅ **NEWLY FIXED!**
+3. **User Registration** (`/register`) - Complete signup with role pre-selection
+4. **User Login** (`/login`) - JWT-based authentication with bcrypt password hashing  
+5. **User Dashboard** (`/dashboard`) - Role-specific dashboard with matching system
+6. **Profile Pages** (`/profile`) - User profile with industry, bio, and contact info
 
 ### Core Platform Features
-1. **Landing Page** (`/`) - Black-and-white scribble design with call-to-action
+1. **Seamless Navigation** - All pages properly connected and working
 2. **Real WebRTC Video Calls** - Peer-to-peer video calling with camera/microphone controls
 3. **Matching System** - Real-time queue system pairing students with leaders
 4. **Session Management** - JWT tokens, secure authentication, session persistence
+5. **Role-Based Access** - Different experiences for Students vs CEOs/Leaders
 
 ### Technical Features
 - **Real WebRTC Implementation**: Browser-based video calling with simple-peer
@@ -41,12 +47,15 @@
 - **Migrations**: Full database schema with proper foreign keys and constraints
 
 ## User Journey
-1. **Land on Homepage** → See scribble design and mission
-2. **Choose Role** → Select "Student" or "CEO/Leader"  
-3. **Get Matched** → Automatic pairing (2-second simulation)
-4. **Video Chat** → Mock video call with working text chat
-5. **End Call** → Donation request with fake payment options
-6. **Repeat** → Option to start new conversation
+1. **Land on Homepage** → See scribble design and mission statement
+2. **Click "Start a Conversation"** → Navigate to role selection page ✅ **FIXED!**
+3. **Choose Role** → Select "Student" (🎓) or "Leader" (👔) with detailed descriptions
+4. **Register Account** → Role automatically pre-selected in registration form  
+5. **Access Dashboard** → Personalized dashboard with matching preferences
+6. **Find Match** → Real-time matching queue with WebSocket connections
+7. **Video Chat** → Real WebRTC peer-to-peer video calling
+8. **Rate & Feedback** → Post-conversation rating and feedback system
+9. **View History** → Access conversation history and statistics
 
 ## Tech Stack
 - **Backend**: Hono + TypeScript
