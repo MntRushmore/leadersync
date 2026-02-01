@@ -1,6 +1,5 @@
 {
   "name": "webapp",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "echo 'No build step needed - Vercel handles bundling'",
