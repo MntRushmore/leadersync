@@ -22,7 +22,7 @@ export function LoginPage() {
               Welcome Back! 👋
             </h2>
             <p class="text-xl font-handwritten max-w-2xl mx-auto">
-              Sign in to continue your journey of meaningful conversations
+              Sign in to continue your career mentorship and professional development journey
             </p>
           </div>
         </div>

@@ -25,7 +25,7 @@ export function AboutPage() {
               Our Story 📖
             </h2>
             <p class="text-xl font-handwritten max-w-3xl mx-auto">
-              Building bridges between ambition and experience, one conversation at a time
+              Free career advice, professional mentorship, and one-on-one tutoring from industry leaders
             </p>
           </div>
         </div>
@@ -38,20 +38,21 @@ export function AboutPage() {
             </h3>
             <img
               src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80"
-              alt="Student receiving guidance from a mentor at a whiteboard"
+              alt="Student receiving career coaching and professional development guidance from a mentor"
               class="w-full h-56 object-cover rounded mb-6"
               style="border-radius: 12px 20px 16px 24px"
             />
             <p class="text-lg font-handwritten leading-relaxed mb-6">
-              At ConvoConnect, we believe that every student deserves access to the wisdom,
-              guidance, and inspiration that comes from successful leaders and entrepreneurs.
-              Too often, these valuable connections are limited by geography, network size,
+              At ConvoConnect, we believe that every college student deserves access to career advice,
+              career guidance, and professional mentoring from successful leaders and entrepreneurs.
+              Too often, these valuable mentorship opportunities are limited by geography, network size,
               or social barriers.
             </p>
             <p class="text-lg font-handwritten leading-relaxed">
-              We're breaking down those walls by creating a platform where meaningful
-              conversations can happen instantly, randomly, and authentically - just like
-              the chance encounters that often change lives forever.
+              We're breaking down those walls by creating a mentorship platform where career coaching
+              and tutoring sessions can happen instantly and authentically - connecting students
+              with executive coaches and industry leaders for the career counseling that drives
+              long-term career success.
             </p>
           </div>
         </div>
@@ -64,15 +65,16 @@ export function AboutPage() {
             </h3>
             <img
               src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=700&q=80"
-              alt="Students and professionals having an engaging conversation"
+              alt="Students networking with professionals for career advice and mentorship opportunities"
               class="w-full h-48 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
             <p class="font-handwritten text-lg leading-relaxed">
-              The idea came from a simple observation: the most impactful conversations often
-              happen by chance. A student sitting next to a CEO on a plane. A chance meeting
-              at a coffee shop. A random encounter at a conference. These serendipitous moments
-              can change entire career trajectories - but they're too rare and too dependent on luck.
+              The idea came from a simple observation: the best career advice often comes
+              by chance. A student sitting next to a CEO on a plane. A chance meeting with a mentor
+              at a coffee shop. A random networking encounter at a conference. These moments of
+              career guidance can change entire career trajectories - but they're too rare
+              and too dependent on luck. We built ConvoConnect so finding a mentor is just one click away.
             </p>
           </div>
         </div>
@@ -85,8 +87,8 @@ export function AboutPage() {
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="scribble-card p-6 text-center transform hover:rotate-2 transition-transform">
               <div class="text-4xl mb-4">🤝</div>
-              <h4 class="font-bold font-sketch text-lg mb-3">Authentic Connection</h4>
-              <p class="font-handwritten text-sm">Real conversations with real people, no scripts or agendas.</p>
+              <h4 class="font-bold font-sketch text-lg mb-3">One-on-One Mentoring</h4>
+              <p class="font-handwritten text-sm">Real career coaching conversations with real professionals, no scripts or agendas.</p>
             </div>
             
             <div class="scribble-card p-6 text-center transform hover:-rotate-2 transition-transform">
@@ -97,14 +99,14 @@ export function AboutPage() {
             
             <div class="scribble-card p-6 text-center transform hover:rotate-2 transition-transform">
               <div class="text-4xl mb-4">🚀</div>
-              <h4 class="font-bold font-sketch text-lg mb-3">Growth Mindset</h4>
-              <p class="font-handwritten text-sm">Every conversation is an opportunity to learn and grow.</p>
+              <h4 class="font-bold font-sketch text-lg mb-3">Career Growth</h4>
+              <p class="font-handwritten text-sm">Every mentoring session is an opportunity for professional development and career advancement.</p>
             </div>
             
             <div class="scribble-card p-6 text-center transform hover:-rotate-2 transition-transform">
               <div class="text-4xl mb-4">🌍</div>
-              <h4 class="font-bold font-sketch text-lg mb-3">Accessibility</h4>
-              <p class="font-handwritten text-sm">Breaking down barriers to mentorship and inspiration.</p>
+              <h4 class="font-bold font-sketch text-lg mb-3">Free Career Advice</h4>
+              <p class="font-handwritten text-sm">Breaking down barriers to career counseling, tutoring, and professional mentorship.</p>
             </div>
           </div>
         </div>
@@ -117,7 +119,7 @@ export function AboutPage() {
             </h3>
             <img
               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
-              alt="Teacher tutoring a student in a classroom setting"
+              alt="Professional career coaching and tutoring in a one-on-one mentorship setting"
               class="w-full h-48 object-cover rounded mb-8"
               style="border-radius: 12px 20px 16px 24px"
             />
@@ -128,11 +130,11 @@ export function AboutPage() {
               </div>
               <div class="transform hover:scale-105 transition-transform">
                 <div class="text-4xl font-bold font-sketch text-green-600 mb-2">89%</div>
-                <p class="font-handwritten">Report gaining career clarity</p>
+                <p class="font-handwritten">Report career success and clarity</p>
               </div>
               <div class="transform hover:scale-105 transition-transform">
                 <div class="text-4xl font-bold font-sketch text-purple-600 mb-2">156</div>
-                <p class="font-handwritten">Job offers attributed to connections</p>
+                <p class="font-handwritten">Job offers from career mentorship connections</p>
               </div>
             </div>
           </div>
@@ -174,11 +176,11 @@ export function AboutPage() {
               🔮 What's Next?
             </h3>
             <div class="space-y-4 font-handwritten text-lg">
-              <p>• <strong>Global Expansion:</strong> Connecting students and leaders across all continents</p>
-              <p>• <strong>Industry Matching:</strong> Specialized conversations by field and interest</p>
-              <p>• <strong>Follow-up Tools:</strong> Help maintain valuable connections beyond the first chat</p>
-              <p>• <strong>Impact Tracking:</strong> See the real career outcomes from these conversations</p>
-              <p>• <strong>Mobile App:</strong> Take meaningful conversations anywhere</p>
+              <p>• <strong>Global Mentorship Network:</strong> Career advice and tutoring from leaders across all continents</p>
+              <p>• <strong>Industry-Specific Career Coaching:</strong> Find a mentor in your exact field of interest</p>
+              <p>• <strong>Long-Term Mentorship:</strong> Build ongoing professional mentoring relationships beyond the first session</p>
+              <p>• <strong>Career Success Tracking:</strong> See real career growth outcomes from mentorship connections</p>
+              <p>• <strong>Mobile Career Guidance:</strong> Access career counseling and professional development anywhere</p>
             </div>
           </div>
         </div>
@@ -190,8 +192,8 @@ export function AboutPage() {
               Join Our Movement! 🚀
             </h3>
             <p class="text-lg font-handwritten mb-8 max-w-2xl">
-              Whether you're a student seeking guidance or a leader ready to inspire, 
-              you can be part of something that's changing how knowledge and wisdom are shared.
+              Whether you're a college student looking for career advice or an executive ready to mentor,
+              join a mentorship program that's helping people build successful careers through professional guidance.
             </p>
             <div class="space-y-4">
               <a href="/role-select" 

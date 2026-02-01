@@ -24,7 +24,7 @@ export function LandingPage() {
             </h1>
           </div>
           <p class="text-xl md:text-2xl font-handwritten max-w-2xl mx-auto transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-            Connecting students with leaders through real conversations
+            Free career advice and mentorship from CEOs and industry leaders
           </p>
         </header>
 
@@ -33,12 +33,12 @@ export function LandingPage() {
           <div class="scribble-border-large overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80"
-              alt="Students collaborating and learning together"
+              alt="Students getting career advice and tutoring from a professional mentor"
               class="w-full h-64 md:h-80 object-cover"
             />
           </div>
           <p class="text-center font-handwritten text-sm text-gray-500 mt-2 transform -rotate-1">
-            Real conversations. Real connections. Real impact.
+            One-on-one career coaching and mentorship that drives real career success.
           </p>
         </div>
 
@@ -46,11 +46,11 @@ export function LandingPage() {
         <div class="text-center mb-16">
           <div class="scribble-border-large inline-block p-8 mb-8 bg-gray-50">
             <h2 class="text-3xl md:text-4xl font-bold font-sketch mb-6 transform rotate-1">
-              Ready to have a life-changing conversation?
+              Get career guidance from real industry leaders
             </h2>
             <p class="text-lg font-handwritten mb-8 max-w-xl mx-auto">
-              Whether you're a student seeking guidance or a leader wanting to inspire,
-              your next meaningful conversation is just one click away.
+              Whether you're a college student seeking career advice or a leader ready to mentor,
+              start building a successful career through one-on-one professional mentorship.
             </p>
 
             {/* Big CTA Button */}
@@ -68,51 +68,51 @@ export function LandingPage() {
           <div class="scribble-card p-6 text-center transform hover:rotate-1 transition-transform duration-300">
             <img
               src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80"
-              alt="Mentor guiding a student one-on-one"
+              alt="One-on-one career coaching session between a mentor and student"
               class="w-full h-40 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
-            <h3 class="text-xl font-bold font-sketch mb-3">Perfect Matches</h3>
-            <p class="font-handwritten">Smart pairing of students with industry leaders and inspirational figures.</p>
+            <h3 class="text-xl font-bold font-sketch mb-3">Find a Mentor</h3>
+            <p class="font-handwritten">Smart mentor matching pairs college students with CEOs and industry leaders for career guidance.</p>
           </div>
 
           <div class="scribble-card p-6 text-center transform hover:-rotate-1 transition-transform duration-300">
             <img
               src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&q=80"
-              alt="Student in a video tutoring session"
+              alt="Student in an online video tutoring and career coaching session"
               class="w-full h-40 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
-            <h3 class="text-xl font-bold font-sketch mb-3">Face-to-Face</h3>
-            <p class="font-handwritten">Real video conversations that build genuine connections and trust.</p>
+            <h3 class="text-xl font-bold font-sketch mb-3">Video Mentoring</h3>
+            <p class="font-handwritten">Live one-on-one video tutoring sessions for career advice and professional development.</p>
           </div>
 
           <div class="scribble-card p-6 text-center transform hover:rotate-1 transition-transform duration-300">
             <img
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80"
-              alt="Students celebrating learning achievements"
+              alt="Students achieving career success through professional mentorship and tutoring"
               class="w-full h-40 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
-            <h3 class="text-xl font-bold font-sketch mb-3">Real Impact</h3>
-            <p class="font-handwritten">Meaningful exchanges that inspire growth and open new possibilities.</p>
+            <h3 class="text-xl font-bold font-sketch mb-3">Career Growth</h3>
+            <p class="font-handwritten">Build a successful career with mentorship that drives long-term career growth and professional success.</p>
           </div>
         </div>
 
         {/* Mission Statement */}
         <div class="text-center mb-16">
           <div class="scribble-border inline-block p-6 max-w-3xl">
-            <h2 class="text-2xl font-bold font-sketch mb-4 transform -rotate-1">Our Mission</h2>
+            <h2 class="text-2xl font-bold font-sketch mb-4 transform -rotate-1">Our Mission: Career Mentorship for All</h2>
             <img
               src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&q=80"
-              alt="Diverse group of students engaged in a tutoring session"
+              alt="Diverse group of college students in a career development tutoring session"
               class="w-full h-48 object-cover rounded mb-4"
               style="border-radius: 12px 20px 16px 24px"
             />
             <p class="text-lg font-handwritten leading-relaxed">
-              We believe that every student deserves access to mentorship and inspiration from successful leaders.
-              ConvoConnect breaks down barriers and creates opportunities for meaningful conversations that can
-              change lives and shape futures.
+              We believe every student deserves access to career counseling and professional mentoring from successful leaders.
+              ConvoConnect makes career guidance accessible by connecting students with executive coaches and industry mentors
+              who help with career planning, professional development, and building a successful career path.
             </p>
           </div>
         </div>
