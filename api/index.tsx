@@ -1,5 +1,5 @@
+import type { IncomingMessage, ServerResponse } from 'node:http'
 import { Hono } from 'hono'
-import { handle } from '@hono/node-server/vercel'
 import { renderer } from '../src/renderer'
 import { LandingPage } from '../src/pages/landing'
 import { LoginPage } from '../src/pages/login'
@@ -24,4 +24,33 @@ export const config = {
   maxDuration: 30,
 }
 
-export default handle(app)
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  try {
+    const proto = req.headers['x-forwarded-proto'] || 'https'
+    const host = req.headers.host || 'localhost'
+    const url = new URL(req.url || '/', `${proto}://${host}`)
+
+    const headers = new Headers()
+    for (const [key, value] of Object.entries(req.headers)) {
+      if (value) headers.set(key, Array.isArray(value) ? value.join(', ') : value)
+    }
+
+    const webReq = new Request(url.toString(), {
+      method: req.method || 'GET',
+      headers,
+    })
+
+    const webRes = await app.fetch(webReq)
+
+    const resHeaders: Record<string, string> = {}
+    webRes.headers.forEach((value, key) => { resHeaders[key] = value })
+    res.writeHead(webRes.status, resHeaders)
+
+    const body = await webRes.arrayBuffer()
+    res.end(Buffer.from(body))
+  } catch (err: any) {
+    console.error('HANDLER_ERROR:', err)
+    res.writeHead(500, { 'Content-Type': 'text/plain' })
+    res.end(`Error: ${err.stack || err.message || String(err)}`)
+  }
+}

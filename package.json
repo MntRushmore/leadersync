@@ -8,7 +8,6 @@
     "test": "curl http://localhost:3000"
   },
   "dependencies": {
-    "@hono/node-server": "^1.19.9",
     "hono": "^4.9.8"
   },
   "devDependencies": {
