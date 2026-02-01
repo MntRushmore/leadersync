@@ -95,7 +95,7 @@ export function RegisterPage() {
                   id="password"
                   name="password"
                   required
-                  minlength="8"
+                  minLength={8}
                   class="w-full p-3 border-2 border-black border-dashed rounded-lg font-handwritten focus:outline-none focus:border-solid focus:rotate-1 transition-transform"
                   placeholder="At least 8 characters"
                 />

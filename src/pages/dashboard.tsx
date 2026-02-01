@@ -367,7 +367,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
 
                 <div>
                   <label class="block font-sketch mb-2">Bio</label>
-                  <textarea id="profileBio" rows="4" class="w-full p-3 border-2 border-black border-dashed rounded font-handwritten focus:outline-none focus:border-solid" placeholder="Tell us about yourself...">{user.bio || ''}</textarea>
+                  <textarea id="profileBio" rows={4} class="w-full p-3 border-2 border-black border-dashed rounded font-handwritten focus:outline-none focus:border-solid" placeholder="Tell us about yourself...">{user.bio || ''}</textarea>
                 </div>
 
                 <button type="submit" class="w-full scribble-button p-4 font-sketch text-xl bg-green-200 hover:bg-green-300">

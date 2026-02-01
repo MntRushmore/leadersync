@@ -107,7 +107,7 @@ export function ProfilePage({ user }: ProfilePageProps) {
                   <textarea
                     id="bio"
                     name="bio"
-                    rows="4"
+                    rows={4}
                     placeholder="Tell others about yourself, your interests, and what you hope to gain from conversations..."
                     class="w-full p-3 border-2 border-black border-dashed rounded-lg font-handwritten focus:outline-none focus:border-solid resize-none"
                   >{user.bio || ''}</textarea>

@@ -97,7 +97,7 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
 
 // Generate JWT token
 export function generateToken(payload: any, secret: string, expiresIn: string = '7d'): string {
-  return jwt.sign(payload, secret, { expiresIn })
+  return jwt.sign(payload, secret, { expiresIn } as any)
 }
 
 // Verify JWT token
@@ -223,7 +223,7 @@ export class UserService {
     isOnline?: boolean
   }): Promise<User[]> {
     let query = 'SELECT * FROM users WHERE role = ? AND is_active = 1 AND verification_status = "verified"'
-    const params = [role]
+    const params: (string | number)[] = [role]
 
     if (filters?.industry) {
       query += ' AND industry = ?'
@@ -243,7 +243,7 @@ export class UserService {
 
     const users = await this.db.prepare(query).bind(...params).all()
     
-    return users.results.map(user => {
+    return users.results.map((user: any) => {
       const { password_hash, ...userWithoutPassword } = user as any
       return this.formatUser(userWithoutPassword)
     })

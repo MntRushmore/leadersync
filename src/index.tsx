@@ -78,7 +78,7 @@ const authMiddleware = async (c: any, next: any) => {
     await next()
   } catch (error) {
     console.error('Authentication error in authMiddleware:', error)
-    return c.json({ error: 'Authentication failed', details: error.message }, 500)
+    return c.json({ error: 'Authentication failed', details: (error as Error).message }, 500)
   }
 }
 
@@ -161,7 +161,7 @@ app.get('/video-call/:roomId', pageAuthMiddleware, (c) => {
 // Donation page
 app.get('/donation', pageAuthMiddleware, (c) => {
   const user = c.get('user')
-  return c.render(<DonationPage user={user} />)
+  return c.render(<DonationPage />)
 })
 
 // ============= AUTHENTICATION API =============
