@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-import { serveStatic } from 'hono/cloudflare-workers'
 import { bearerAuth } from 'hono/bearer-auth'
 import { getCookie } from 'hono/cookie'
 import { renderer } from './renderer'
@@ -23,13 +22,13 @@ import {
 } from './lib/auth'
 import { SignalingServer, MatchingQueue } from './lib/signaling'
 
-// Types for Cloudflare environment
+// Types for environment bindings (Cloudflare D1 / Durable Objects when available)
 interface Env {
-  DB: D1Database
+  DB?: D1Database
   SIGNALING_SERVER?: DurableObjectNamespace
   MATCHING_QUEUE?: DurableObjectNamespace
   AI?: any
-  JWT_SECRET: string
+  JWT_SECRET?: string
 }
 
 const app = new Hono<{ Bindings: Env }>()
@@ -50,8 +49,7 @@ app.use('/ws/*', cors({
   allowHeaders: ['Upgrade', 'Connection', 'Sec-WebSocket-Key', 'Sec-WebSocket-Version'],
 }))
 
-// Serve static files
-app.use('/static/*', serveStatic({ root: './public' }))
+// Static files are served automatically by the hosting platform (Vercel/Cloudflare Pages)
 
 // JSX renderer
 app.use(renderer)
