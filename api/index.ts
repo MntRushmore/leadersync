@@ -1,9 +1,10 @@
-import { handle } from '@hono/node-server/vercel'
+import { handle } from 'hono/vercel'
 import app from '../src/index'
 
 export const config = {
-  runtime: 'nodejs',
-  maxDuration: 30,
+  api: {
+    bodyParser: false,
+  },
 }
 
 export default handle(app)
