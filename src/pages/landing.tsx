@@ -28,6 +28,20 @@ export function LandingPage() {
           </p>
         </header>
 
+        {/* Hero Image Section */}
+        <div class="mb-12 max-w-4xl mx-auto">
+          <div class="scribble-border-large overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80"
+              alt="Students collaborating and learning together"
+              class="w-full h-64 md:h-80 object-cover"
+            />
+          </div>
+          <p class="text-center font-handwritten text-sm text-gray-500 mt-2 transform -rotate-1">
+            Real conversations. Real connections. Real impact.
+          </p>
+        </div>
+
         {/* Main CTA Section */}
         <div class="text-center mb-16">
           <div class="scribble-border-large inline-block p-8 mb-8 bg-gray-50">
@@ -35,13 +49,13 @@ export function LandingPage() {
               Ready to have a life-changing conversation?
             </h2>
             <p class="text-lg font-handwritten mb-8 max-w-xl mx-auto">
-              Whether you're a student seeking guidance or a leader wanting to inspire, 
+              Whether you're a student seeking guidance or a leader wanting to inspire,
               your next meaningful conversation is just one click away.
             </p>
-            
+
             {/* Big CTA Button */}
-            <button 
-              onclick="window.location.href='/role-select'" 
+            <button
+              onclick="window.location.href='/role-select'"
               class="scribble-button text-2xl md:text-3xl font-bold font-sketch px-12 py-6 transform hover:scale-105 hover:rotate-1 transition-all duration-300 bg-black text-white hover:bg-gray-800"
             >
               Start a Conversation
@@ -52,19 +66,34 @@ export function LandingPage() {
         {/* Features Section */}
         <div class="grid md:grid-cols-3 gap-8 mb-16">
           <div class="scribble-card p-6 text-center transform hover:rotate-1 transition-transform duration-300">
-            <div class="text-4xl mb-4">🎯</div>
+            <img
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80"
+              alt="Mentor guiding a student one-on-one"
+              class="w-full h-40 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <h3 class="text-xl font-bold font-sketch mb-3">Perfect Matches</h3>
             <p class="font-handwritten">Smart pairing of students with industry leaders and inspirational figures.</p>
           </div>
-          
+
           <div class="scribble-card p-6 text-center transform hover:-rotate-1 transition-transform duration-300">
-            <div class="text-4xl mb-4">📹</div>
+            <img
+              src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&q=80"
+              alt="Student in a video tutoring session"
+              class="w-full h-40 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <h3 class="text-xl font-bold font-sketch mb-3">Face-to-Face</h3>
             <p class="font-handwritten">Real video conversations that build genuine connections and trust.</p>
           </div>
-          
+
           <div class="scribble-card p-6 text-center transform hover:rotate-1 transition-transform duration-300">
-            <div class="text-4xl mb-4">💡</div>
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80"
+              alt="Students celebrating learning achievements"
+              class="w-full h-40 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <h3 class="text-xl font-bold font-sketch mb-3">Real Impact</h3>
             <p class="font-handwritten">Meaningful exchanges that inspire growth and open new possibilities.</p>
           </div>
@@ -74,9 +103,15 @@ export function LandingPage() {
         <div class="text-center mb-16">
           <div class="scribble-border inline-block p-6 max-w-3xl">
             <h2 class="text-2xl font-bold font-sketch mb-4 transform -rotate-1">Our Mission</h2>
+            <img
+              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&q=80"
+              alt="Diverse group of students engaged in a tutoring session"
+              class="w-full h-48 object-cover rounded mb-4"
+              style="border-radius: 12px 20px 16px 24px"
+            />
             <p class="text-lg font-handwritten leading-relaxed">
-              We believe that every student deserves access to mentorship and inspiration from successful leaders. 
-              ConvoConnect breaks down barriers and creates opportunities for meaningful conversations that can 
+              We believe that every student deserves access to mentorship and inspiration from successful leaders.
+              ConvoConnect breaks down barriers and creates opportunities for meaningful conversations that can
               change lives and shape futures.
             </p>
           </div>

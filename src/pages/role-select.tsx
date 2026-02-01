@@ -34,7 +34,12 @@ export function RoleSelectPage() {
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           {/* Student Card */}
           <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
-            <div class="text-6xl mb-6">🎓</div>
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80"
+              alt="Students studying together with laptops"
+              class="w-full h-44 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <h2 class="text-2xl md:text-3xl font-bold font-sketch mb-4 transform rotate-1">
               I'm a Student
             </h2>
@@ -61,7 +66,12 @@ export function RoleSelectPage() {
 
           {/* CEO/Leader Card */}
           <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
-            <div class="text-6xl mb-6">👔</div>
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+              alt="Professional business leader ready to mentor"
+              class="w-full h-44 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <h2 class="text-2xl md:text-3xl font-bold font-sketch mb-4 transform -rotate-1">
               I'm a Leader
             </h2>

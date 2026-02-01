@@ -121,6 +121,17 @@ export function DashboardPage({ user }: DashboardPageProps) {
             </div>
           </div>
 
+          {/* Tutoring Banner */}
+          <div class="mb-8 max-w-4xl mx-auto">
+            <div class="scribble-border-large overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=900&q=80"
+                alt="Student getting tutored by a mentor with a laptop"
+                class="w-full h-48 object-cover"
+              />
+            </div>
+          </div>
+
           {/* Quick Actions */}
           <div class="text-center mb-8">
             <div class="scribble-border-large inline-block p-8 bg-gray-50">
@@ -243,7 +254,12 @@ export function DashboardPage({ user }: DashboardPageProps) {
           <div id="upcomingCalls" class="call-tab-content">
             <div class="text-center py-8">
               <div class="scribble-card p-8 bg-blue-50 max-w-md mx-auto">
-                <div class="text-6xl mb-4">📅</div>
+                <img
+                  src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80"
+                  alt="Student studying and preparing for a tutoring session"
+                  class="w-full h-40 object-cover rounded mb-4"
+                  style="border-radius: 10px 18px 14px 20px"
+                />
                 <h3 class="text-xl font-bold font-sketch mb-4">No Upcoming Calls</h3>
                 <p class="font-handwritten mb-6">You don't have any scheduled video calls yet. Ready to connect with inspiring leaders?</p>
                 <button onclick="switchSection('find-ceos')" class="scribble-button px-6 py-3 font-sketch bg-blue-200 hover:bg-blue-300">
