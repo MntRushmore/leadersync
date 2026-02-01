@@ -15,14 +15,14 @@ export function RegisterPage() {
         {/* Header */}
         <div class="text-center mb-12">
           <a href="/" class="inline-block scribble-border p-3 mb-8 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </a>
           <div class="scribble-border-large inline-block p-6">
             <h2 class="text-4xl md:text-5xl font-bold font-sketch mb-4 transform -rotate-1">
               Join the Community! 🚀
             </h2>
             <p class="text-xl font-handwritten max-w-2xl mx-auto">
-              Create your account and start meaningful conversations today
+              Create your account to get career advice, find a mentor, and start your professional development journey
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export function RegisterPage() {
                     <div class="scribble-card p-4 text-center hover:bg-blue-50 transition-colors">
                       <div class="text-3xl mb-2">🎓</div>
                       <span class="font-sketch font-bold">Student</span>
-                      <p class="font-handwritten text-sm mt-1">Seeking guidance and mentorship</p>
+                      <p class="font-handwritten text-sm mt-1">Seeking career advice, tutoring, and mentorship</p>
                     </div>
                   </label>
                   
@@ -49,7 +49,7 @@ export function RegisterPage() {
                     <div class="scribble-card p-4 text-center hover:bg-purple-50 transition-colors">
                       <div class="text-3xl mb-2">👑</div>
                       <span class="font-sketch font-bold">CEO/Leader</span>
-                      <p class="font-handwritten text-sm mt-1">Ready to inspire and mentor</p>
+                      <p class="font-handwritten text-sm mt-1">Ready to provide career coaching and mentoring</p>
                     </div>
                   </label>
                 </div>

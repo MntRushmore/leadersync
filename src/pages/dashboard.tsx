@@ -10,7 +10,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
         <div class="container mx-auto flex justify-between items-center">
           <div class="flex items-center space-x-6">
             <a href="/" class="scribble-border p-2 hover:rotate-1 transition-transform">
-              <span class="text-xl font-bold font-sketch">ConvoConnect</span>
+              <span class="text-xl font-bold font-sketch">MentorMatch</span>
             </a>
             <nav class="hidden md:flex space-x-4">
               <button onclick="switchSection('overview')" class="nav-btn font-handwritten hover:underline" data-section="overview">
@@ -85,9 +85,9 @@ export function DashboardPage({ user }: DashboardPageProps) {
                 {user.role === 'student' ? '🎓 Student Dashboard' : '👑 Leader Dashboard'}
               </h1>
               <p class="text-xl font-handwritten">
-                {user.role === 'student' 
-                  ? 'Ready to connect with inspiring leaders and get career guidance?'
-                  : 'Ready to share your wisdom and inspire the next generation?'}
+                {user.role === 'student'
+                  ? 'Ready to get career advice from mentors and start building a successful career?'
+                  : 'Ready to provide career coaching and mentorship to the next generation?'}
               </p>
             </div>
           </div>
@@ -97,7 +97,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
             <div class="scribble-card p-6 text-center transform hover:rotate-1 transition-transform">
               <div class="text-3xl mb-2">💬</div>
               <h3 class="text-2xl font-bold font-sketch">{user.totalConversations || 0}</h3>
-              <p class="font-handwritten text-sm">Total Conversations</p>
+              <p class="font-handwritten text-sm">Mentoring Sessions</p>
             </div>
             
             <div class="scribble-card p-6 text-center transform hover:-rotate-1 transition-transform">
@@ -117,7 +117,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
             <div class="scribble-card p-6 text-center transform hover:-rotate-1 transition-transform">
               <div class="text-3xl mb-2">🎯</div>
               <h3 class="text-2xl font-bold font-sketch">3</h3>
-              <p class="font-handwritten text-sm">Available Matches</p>
+              <p class="font-handwritten text-sm">Available Mentors</p>
             </div>
           </div>
 
@@ -126,7 +126,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
             <div class="scribble-border-large overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=900&q=80"
-                alt="Student getting tutored by a mentor with a laptop"
+                alt="Student getting career coaching and one-on-one tutoring from a professional mentor"
                 class="w-full h-48 object-cover"
               />
             </div>
@@ -256,14 +256,14 @@ export function DashboardPage({ user }: DashboardPageProps) {
               <div class="scribble-card p-8 bg-blue-50 max-w-md mx-auto">
                 <img
                   src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80"
-                  alt="Student studying and preparing for a tutoring session"
+                alt="Student preparing for a career mentorship and online tutoring session"
                   class="w-full h-40 object-cover rounded mb-4"
                   style="border-radius: 10px 18px 14px 20px"
                 />
                 <h3 class="text-xl font-bold font-sketch mb-4">No Upcoming Calls</h3>
-                <p class="font-handwritten mb-6">You don't have any scheduled video calls yet. Ready to connect with inspiring leaders?</p>
+                <p class="font-handwritten mb-6">You don't have any scheduled mentoring sessions yet. Ready to get career advice from industry leaders?</p>
                 <button onclick="switchSection('find-ceos')" class="scribble-button px-6 py-3 font-sketch bg-blue-200 hover:bg-blue-300">
-                  🔍 Find Leaders to Connect
+                  🔍 Find a Mentor
                 </button>
               </div>
             </div>

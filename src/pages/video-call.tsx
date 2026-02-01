@@ -10,7 +10,7 @@ export function VideoCallPage({ user, roomId }: VideoCallPageProps) {
       <header class="bg-black p-4 border-b-2 border-white">
         <div class="flex justify-between items-center max-w-6xl mx-auto">
           <div class="scribble-border-white p-2">
-            <h1 class="text-xl font-sketch">ConvoConnect</h1>
+            <h1 class="text-xl font-sketch">MentorMatch</h1>
           </div>
           <div class="flex space-x-4">
             <button onclick="nextConversation()" 

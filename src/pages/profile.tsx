@@ -19,7 +19,7 @@ export function ProfilePage({ user }: ProfilePageProps) {
         {/* Header */}
         <header class="flex justify-between items-center mb-12">
           <div class="scribble-border p-3 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </div>
           
           <div class="flex space-x-4">

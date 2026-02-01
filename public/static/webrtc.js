@@ -1,7 +1,7 @@
-// Real WebRTC Implementation for ConvoConnect
+// Real WebRTC Implementation for MentorMatch
 // This will replace the mock WebRTC in video-call.tsx
 
-class ConvoConnectRTC {
+class MentorMatchRTC {
   constructor(roomId, user) {
     this.roomId = roomId
     this.user = user
@@ -20,7 +20,7 @@ class ConvoConnectRTC {
   }
 
   async init() {
-    console.log('🚀 Initializing ConvoConnect WebRTC...')
+    console.log('🚀 Initializing MentorMatch WebRTC...')
     
     try {
       // Initialize camera and microphone
@@ -578,7 +578,7 @@ let webrtcInstance = null
 
 function initializeWebRTC(roomId, user) {
   console.log('🚀 Starting WebRTC for room:', roomId)
-  webrtcInstance = new ConvoConnectRTC(roomId, user)
+  webrtcInstance = new MentorMatchRTC(roomId, user)
 }
 
 function toggleMute() {

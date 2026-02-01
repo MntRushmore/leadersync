@@ -25,8 +25,8 @@ export function RoleSelectPage() {
             </h1>
           </div>
           <p class="text-lg md:text-xl font-handwritten max-w-2xl mx-auto transform -rotate-1">
-            Are you a student seeking guidance or a leader ready to inspire? 
-            Select your role to get started with meaningful conversations.
+            Are you a student seeking career advice and mentorship, or a leader ready to coach?
+            Select your role to start your career development journey.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export function RoleSelectPage() {
           <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
             <img
               src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80"
-              alt="Students studying together with laptops"
+              alt="College students getting career advice and online tutoring together"
               class="w-full h-44 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
@@ -44,16 +44,16 @@ export function RoleSelectPage() {
               I'm a Student
             </h2>
             <p class="font-handwritten text-lg mb-6 leading-relaxed">
-              Connect with industry leaders, successful entrepreneurs, and inspiring mentors. 
-              Get advice, insights, and guidance to shape your future career.
+              Find a mentor among industry leaders, successful entrepreneurs, and career coaches.
+              Get career advice, professional guidance, and one-on-one tutoring to build a successful career.
             </p>
             <div class="mb-6">
               <h3 class="font-bold font-sketch mb-2">Perfect for:</h3>
               <ul class="font-handwritten text-sm text-left space-y-1">
-                <li>• College & university students</li>
-                <li>• Recent graduates</li>
-                <li>• Career changers</li>
-                <li>• Aspiring entrepreneurs</li>
+                <li>• College students seeking career guidance</li>
+                <li>• Recent graduates planning career paths</li>
+                <li>• Professionals looking for career change advice</li>
+                <li>• Aspiring entrepreneurs needing mentorship</li>
               </ul>
             </div>
             <button 
@@ -68,7 +68,7 @@ export function RoleSelectPage() {
           <div class="scribble-card p-8 text-center transform hover:scale-105 transition-all duration-300">
             <img
               src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
-              alt="Professional business leader ready to mentor"
+              alt="Executive coach and business leader ready for career mentoring and leadership coaching"
               class="w-full h-44 object-cover rounded mb-4"
               style="border-radius: 10px 18px 14px 20px"
             />
@@ -76,16 +76,16 @@ export function RoleSelectPage() {
               I'm a Leader
             </h2>
             <p class="font-handwritten text-lg mb-6 leading-relaxed">
-              Share your experience and wisdom with the next generation. 
-              Inspire students and make a lasting impact through meaningful conversations.
+              Provide career coaching and professional mentorship to the next generation.
+              Share career advice and make a lasting impact through executive mentoring sessions.
             </p>
             <div class="mb-6">
               <h3 class="font-bold font-sketch mb-2">Perfect for:</h3>
               <ul class="font-handwritten text-sm text-left space-y-1">
-                <li>• CEOs & executives</li>
-                <li>• Successful entrepreneurs</li>
-                <li>• Industry veterans</li>
-                <li>• Inspirational speakers</li>
+                <li>• CEOs & executive coaches</li>
+                <li>• Successful career professionals</li>
+                <li>• Industry leaders & mentors</li>
+                <li>• Leadership coaching experts</li>
               </ul>
             </div>
             <button 
@@ -101,7 +101,7 @@ export function RoleSelectPage() {
         <div class="text-center">
           <div class="scribble-border inline-block p-6 bg-gray-50">
             <p class="font-handwritten text-lg mb-4">
-              New to ConvoConnect?
+              New to MentorMatch?
             </p>
             <a 
               href="/register" 
