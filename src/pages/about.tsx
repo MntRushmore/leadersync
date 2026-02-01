@@ -18,7 +18,7 @@ export function AboutPage() {
         {/* Header */}
         <div class="text-center mb-16">
           <a href="/" class="inline-block scribble-border p-3 mb-8 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </a>
           <div class="scribble-border-large inline-block p-6">
             <h2 class="text-4xl md:text-6xl font-bold font-sketch mb-4 transform -rotate-1">
@@ -43,7 +43,7 @@ export function AboutPage() {
               style="border-radius: 12px 20px 16px 24px"
             />
             <p class="text-lg font-handwritten leading-relaxed mb-6">
-              At ConvoConnect, we believe that every college student deserves access to career advice,
+              At MentorMatch, we believe that every college student deserves access to career advice,
               career guidance, and professional mentoring from successful leaders and entrepreneurs.
               Too often, these valuable mentorship opportunities are limited by geography, network size,
               or social barriers.
@@ -74,7 +74,7 @@ export function AboutPage() {
               by chance. A student sitting next to a CEO on a plane. A chance meeting with a mentor
               at a coffee shop. A random networking encounter at a conference. These moments of
               career guidance can change entire career trajectories - but they're too rare
-              and too dependent on luck. We built ConvoConnect so finding a mentor is just one click away.
+              and too dependent on luck. We built MentorMatch so finding a mentor is just one click away.
             </p>
           </div>
         </div>
@@ -200,7 +200,7 @@ export function AboutPage() {
                  class="scribble-button inline-block px-8 py-4 font-sketch text-xl hover:rotate-1 transition-transform bg-blue-200 hover:bg-blue-300 mr-4">
                 Start Connecting
               </a>
-              <a href="mailto:hello@convoconnect.com" 
+              <a href="mailto:hello@mentormatch.com" 
                  class="scribble-button inline-block px-8 py-4 font-sketch text-xl hover:-rotate-1 transition-transform bg-green-200 hover:bg-green-300">
                 Get In Touch
               </a>
@@ -225,7 +225,7 @@ export function AboutPage() {
             </a>
           </div>
           <p class="font-handwritten text-sm transform rotate-1">
-            © 2024 ConvoConnect - Where conversations change lives
+            © 2024 MentorMatch - Where conversations change lives
           </p>
         </footer>
       </div>

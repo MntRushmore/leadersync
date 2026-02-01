@@ -10,7 +10,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
         <div class="container mx-auto flex justify-between items-center">
           <div class="flex items-center space-x-6">
             <a href="/" class="scribble-border p-2 hover:rotate-1 transition-transform">
-              <span class="text-xl font-bold font-sketch">ConvoConnect</span>
+              <span class="text-xl font-bold font-sketch">MentorMatch</span>
             </a>
             <nav class="hidden md:flex space-x-4">
               <button onclick="switchSection('overview')" class="nav-btn font-handwritten hover:underline" data-section="overview">

@@ -1,4 +1,4 @@
-// Authentication utilities for ConvoConnect
+// Authentication utilities for MentorMatch
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { z } from 'zod'

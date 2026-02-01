@@ -19,7 +19,7 @@ export function DashboardPage({ user }: DashboardPageProps) {
         {/* Header */}
         <header class="flex justify-between items-center mb-12">
           <div class="scribble-border p-3 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </div>
           
           <div class="flex items-center space-x-4">
@@ -516,15 +516,15 @@ export function DashboardPage({ user }: DashboardPageProps) {
         function shareProfile() {
           if (navigator.share) {
             navigator.share({
-              title: 'ConvoConnect - Meaningful Conversations',
-              text: 'Join me on ConvoConnect for inspiring conversations!',
+              title: 'MentorMatch - Meaningful Conversations',
+              text: 'Join me on MentorMatch for inspiring conversations!',
               url: window.location.origin
             })
           } else {
             // Fallback for browsers without Web Share API
             const url = window.location.origin
             navigator.clipboard.writeText(url).then(() => {
-              alert('ConvoConnect link copied to clipboard!')
+              alert('MentorMatch link copied to clipboard!')
             })
           }
         }

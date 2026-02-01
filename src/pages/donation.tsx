@@ -18,7 +18,7 @@ export function DonationPage() {
         {/* Header */}
         <div class="text-center mb-12">
           <div class="scribble-border inline-block p-4 mb-6">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </div>
           <div class="scribble-border-large inline-block p-6">
             <h2 class="text-4xl md:text-5xl font-bold font-sketch mb-4 transform -rotate-1">
@@ -210,7 +210,7 @@ export function DonationPage() {
         function skipDonation() {
           if (confirm('Are you sure you want to skip? Your support really helps us keep this platform free for students!')) {
             // Maybe show a gentle reminder or alternative way to help
-            alert('No worries! Consider sharing ConvoConnect with friends who might benefit from it. 😊');
+            alert('No worries! Consider sharing MentorMatch with friends who might benefit from it. 😊');
           }
         }
 

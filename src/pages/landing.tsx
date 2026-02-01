@@ -20,7 +20,7 @@ export function LandingPage() {
         <header class="text-center mb-16">
           <div class="scribble-border inline-block p-6 mb-8">
             <h1 class="text-5xl md:text-7xl font-bold font-sketch transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              ConvoConnect
+              MentorMatch
             </h1>
           </div>
           <p class="text-xl md:text-2xl font-handwritten max-w-2xl mx-auto transform -rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -111,7 +111,7 @@ export function LandingPage() {
             />
             <p class="text-lg font-handwritten leading-relaxed">
               We believe every student deserves access to career counseling and professional mentoring from successful leaders.
-              ConvoConnect makes career guidance accessible by connecting students with executive coaches and industry mentors
+              MentorMatch makes career guidance accessible by connecting students with executive coaches and industry mentors
               who help with career planning, professional development, and building a successful career path.
             </p>
           </div>
@@ -131,7 +131,7 @@ export function LandingPage() {
             </a>
           </div>
           <p class="font-handwritten text-sm transform -rotate-1">
-            © 2024 ConvoConnect - Building bridges through conversation
+            © 2024 MentorMatch - Building bridges through conversation
           </p>
         </footer>
       </div>

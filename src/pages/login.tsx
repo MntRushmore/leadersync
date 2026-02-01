@@ -15,7 +15,7 @@ export function LoginPage() {
         {/* Header */}
         <div class="text-center mb-12">
           <a href="/" class="inline-block scribble-border p-3 mb-8 hover:rotate-1 transition-transform">
-            <h1 class="text-3xl font-bold font-sketch">ConvoConnect</h1>
+            <h1 class="text-3xl font-bold font-sketch">MentorMatch</h1>
           </a>
           <div class="scribble-border-large inline-block p-6">
             <h2 class="text-4xl md:text-5xl font-bold font-sketch mb-4 transform rotate-1">
@@ -94,7 +94,7 @@ export function LoginPage() {
           <div class="text-center mt-8">
             <div class="scribble-border inline-block p-4">
               <p class="font-handwritten">
-                New to ConvoConnect?{' '}
+                New to MentorMatch?{' '}
                 <a href="/register" class="font-sketch font-bold hover:underline transform hover:rotate-1 inline-block transition-transform">
                   Create an account
                 </a>

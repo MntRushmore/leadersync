@@ -1,7 +1,7 @@
-// ConvoConnect - Main Application JavaScript
+// MentorMatch - Main Application JavaScript
 
 // Global app state
-const ConvoConnect = {
+const MentorMatch = {
   userRole: null,
   partnerId: null,
   isConnected: false,
@@ -164,7 +164,7 @@ const ConvoConnect = {
       // Simulate connection process
       setTimeout(() => {
         console.log('✅ Peer connection established');
-        ConvoConnect.isConnected = true;
+        MentorMatch.isConnected = true;
         
         // Update UI
         const mockPartner = document.getElementById('mockPartnerVideo');
@@ -195,9 +195,9 @@ const ConvoConnect = {
       };
       
       // Store in localStorage for now
-      const events = JSON.parse(localStorage.getItem('convoconnect_events') || '[]');
+      const events = JSON.parse(localStorage.getItem('mentormatch_events') || '[]');
       events.push(eventData);
-      localStorage.setItem('convoconnect_events', JSON.stringify(events.slice(-50))); // Keep last 50 events
+      localStorage.setItem('mentormatch_events', JSON.stringify(events.slice(-50))); // Keep last 50 events
     },
 
     trackPageView() {
@@ -209,14 +209,14 @@ const ConvoConnect = {
 
     trackConversationStart() {
       this.trackEvent('conversation_start', {
-        userRole: ConvoConnect.userRole
+        userRole: MentorMatch.userRole
       });
     },
 
     trackDonation(amount) {
       this.trackEvent('donation', {
         amount: amount,
-        userRole: ConvoConnect.userRole
+        userRole: MentorMatch.userRole
       });
     }
   },
@@ -286,25 +286,25 @@ const ConvoConnect = {
 
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  ConvoConnect.init();
-  ConvoConnect.analytics.trackPageView();
+  MentorMatch.init();
+  MentorMatch.analytics.trackPageView();
   
   // Auto-initialize camera on video call page
   if (window.location.pathname === '/video-call') {
     setTimeout(() => {
-      ConvoConnect.webRTC.initializeCamera();
-      ConvoConnect.webRTC.createPeerConnection();
+      MentorMatch.webRTC.initializeCamera();
+      MentorMatch.webRTC.createPeerConnection();
     }, 1000);
   }
   
-  console.log('🚀 ConvoConnect initialized successfully!');
+  console.log('🚀 MentorMatch initialized successfully!');
 });
 
 // Add some easter eggs
 console.log(`
  ╭─────────────────────────────────────────╮
  │                                         │
- │        Welcome to ConvoConnect! 🚀      │
+ │        Welcome to MentorMatch! 🚀      │
  │                                         │
  │   Where conversations change lives      │
  │                                         │
@@ -324,11 +324,11 @@ function selectRole(role) {
   localStorage.setItem('preferred_role', role);
   
   // Track the event
-  ConvoConnect.analytics.trackEvent('role_selected', { role: role });
+  MentorMatch.analytics.trackEvent('role_selected', { role: role });
   
   // Show notification
   const roleName = role === 'student' ? 'Student' : 'Leader';
-  ConvoConnect.utils.showNotification(
+  MentorMatch.utils.showNotification(
     `Great! You've selected ${roleName}. Redirecting to registration...`, 
     'success'
   );
@@ -340,5 +340,5 @@ function selectRole(role) {
 }
 
 // Export for global access
-window.ConvoConnect = ConvoConnect;
+window.MentorMatch = MentorMatch;
 window.selectRole = selectRole;

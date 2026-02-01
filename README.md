@@ -1,7 +1,7 @@
-# ConvoConnect - CEO-Student Connection Platform
+# MentorMatch - CEO-Student Connection Platform
 
 ## Project Overview
-- **Name**: ConvoConnect
+- **Name**: MentorMatch
 - **Goal**: Connect students with CEOs and inspirational leaders through random video conversations
 - **Style**: Black-and-white hand-drawn scribble design with playful animations
 - **Inspiration**: Omegle-style matching but focused on professional mentorship

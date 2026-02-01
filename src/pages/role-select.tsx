@@ -101,7 +101,7 @@ export function RoleSelectPage() {
         <div class="text-center">
           <div class="scribble-border inline-block p-6 bg-gray-50">
             <p class="font-handwritten text-lg mb-4">
-              New to ConvoConnect?
+              New to MentorMatch?
             </p>
             <a 
               href="/register" 

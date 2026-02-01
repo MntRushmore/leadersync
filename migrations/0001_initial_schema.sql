@@ -1,4 +1,4 @@
--- ConvoConnect Production Database Schema
+-- MentorMatch Production Database Schema
 -- Migration 0001: Initial user authentication and profiles
 
 -- Users table with comprehensive profiles
