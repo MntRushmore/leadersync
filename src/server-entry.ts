@@ -1,5 +1,5 @@
 import { handle } from '@hono/node-server/vercel'
-import app from '../src/index'
+import app from './index'
 
 export const config = {
   api: {
