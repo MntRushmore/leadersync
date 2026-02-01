@@ -12,29 +12,27 @@ import { VideoCallPage } from './pages/video-call'
 import { DonationPage } from './pages/donation'
 import { AboutPage } from './pages/about'
 import { RoleSelectPage } from './pages/role-select'
-import { 
-  UserService, 
-  SessionService, 
-  LoginSchema, 
-  RegisterSchema, 
+import {
+  UserService,
+  SessionService,
+  LoginSchema,
+  RegisterSchema,
   UpdateProfileSchema,
   extractBearerToken
 } from './lib/auth'
-import { SignalingServer, MatchingQueue } from './lib/signaling'
+import { matchingQueue } from './lib/signaling'
 
-// Types for environment bindings (Cloudflare D1 / Durable Objects when available)
+// Types for environment bindings (Vercel / Node.js)
 interface Env {
-  DB?: D1Database
-  SIGNALING_SERVER?: DurableObjectNamespace
-  MATCHING_QUEUE?: DurableObjectNamespace
-  AI?: any
+  DB?: any
   JWT_SECRET?: string
 }
 
-const app = new Hono<{ Bindings: Env }>()
+interface Variables {
+  user: any
+}
 
-// Export Durable Objects
-export { SignalingServer, MatchingQueue }
+const app = new Hono<{ Bindings: Env; Variables: Variables }>()
 
 // Enable CORS for API and WebSocket endpoints
 app.use('/api/*', cors({
@@ -189,7 +187,7 @@ app.post('/api/auth/register', async (c) => {
     const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
     const token = await sessionService.createSession(
       user.id,
-      c.req.header('CF-Connecting-IP'),
+      c.req.header('x-forwarded-for'),
       c.req.header('User-Agent')
     )
     
@@ -243,7 +241,7 @@ app.post('/api/auth/login', async (c) => {
     const sessionService = new SessionService(c.env.DB, c.env.JWT_SECRET)
     const token = await sessionService.createSession(
       userWithPassword.id,
-      c.req.header('CF-Connecting-IP'),
+      c.req.header('x-forwarded-for'),
       c.req.header('User-Agent')
     )
     
@@ -345,27 +343,20 @@ app.post('/api/matching/join', authMiddleware, async (c) => {
   try {
     const user = c.get('user')
     const { preferences } = await c.req.json()
-    
-    const id = c.env.MATCHING_QUEUE.idFromName('global')
-    const queue = c.env.MATCHING_QUEUE.get(id)
-    
-    const response = await queue.fetch('http://queue/join', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userId: user.id,
-        userName: user.name,
-        role: user.role,
-        preferences: preferences || {}
-      })
-    })
-    
-    return c.json(await response.json())
+
+    const result = await matchingQueue.join(
+      user.id,
+      user.name,
+      user.role,
+      preferences || {}
+    )
+
+    return c.json(result)
   } catch (error: any) {
     console.error('Matching error:', error)
-    return c.json({ 
-      error: 'Failed to join queue', 
-      message: error.message 
+    return c.json({
+      error: 'Failed to join queue',
+      message: error.message
     }, 500)
   }
 })
@@ -374,22 +365,13 @@ app.post('/api/matching/join', authMiddleware, async (c) => {
 app.post('/api/matching/leave', authMiddleware, async (c) => {
   try {
     const user = c.get('user')
-    
-    const id = c.env.MATCHING_QUEUE.idFromName('global')
-    const queue = c.env.MATCHING_QUEUE.get(id)
-    
-    const response = await queue.fetch('http://queue/leave', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: user.id })
-    })
-    
-    return c.json(await response.json())
+    const result = await matchingQueue.leave(user.id)
+    return c.json(result)
   } catch (error: any) {
     console.error('Leave queue error:', error)
-    return c.json({ 
-      error: 'Failed to leave queue', 
-      message: error.message 
+    return c.json({
+      error: 'Failed to leave queue',
+      message: error.message
     }, 500)
   }
 })
@@ -397,38 +379,26 @@ app.post('/api/matching/leave', authMiddleware, async (c) => {
 // Get queue status
 app.get('/api/matching/status', async (c) => {
   try {
-    const id = c.env.MATCHING_QUEUE.idFromName('global')
-    const queue = c.env.MATCHING_QUEUE.get(id)
-    
-    const response = await queue.fetch('http://queue/status')
-    return c.json(await response.json())
+    return c.json(matchingQueue.getStatus())
   } catch (error: any) {
     console.error('Queue status error:', error)
-    return c.json({ 
-      error: 'Failed to get queue status', 
-      message: error.message 
+    return c.json({
+      error: 'Failed to get queue status',
+      message: error.message
     }, 500)
   }
 })
 
 // ============= WEBSOCKET ENDPOINTS =============
+// WebSockets are not supported in Vercel serverless functions.
+// Use a dedicated WebSocket service (e.g., Ably, Pusher, or a separate server) for real-time features.
 
-// WebRTC signaling WebSocket
 app.get('/ws/signaling/:roomId', (c) => {
-  const roomId = c.req.param('roomId')
-  
-  const id = c.env.SIGNALING_SERVER.idFromName(roomId)
-  const signalingServer = c.env.SIGNALING_SERVER.get(id)
-  
-  return signalingServer.fetch(c.req.raw)
+  return c.json({ error: 'WebSocket connections are not supported in serverless mode' }, 501)
 })
 
-// Matching queue WebSocket
 app.get('/ws/matching', (c) => {
-  const id = c.env.MATCHING_QUEUE.idFromName('global')
-  const queue = c.env.MATCHING_QUEUE.get(id)
-  
-  return queue.fetch('http://queue/websocket')
+  return c.json({ error: 'WebSocket connections are not supported in serverless mode' }, 501)
 })
 
 // ============= CONVERSATION API =============

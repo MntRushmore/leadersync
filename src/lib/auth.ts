@@ -124,7 +124,7 @@ export function extractBearerToken(authHeader: string | undefined): string | nul
 
 // User database operations
 export class UserService {
-  constructor(private db: D1Database) {}
+  constructor(private db: any) {}
 
   async createUser(userData: z.infer<typeof RegisterSchema>): Promise<User> {
     const userId = generateId()
@@ -288,7 +288,7 @@ export class UserService {
 
 // Session management
 export class SessionService {
-  constructor(private db: D1Database, private jwtSecret?: string) {}
+  constructor(private db: any, private jwtSecret?: string) {}
 
   async createSession(userId: string, ipAddress?: string, userAgent?: string): Promise<string> {
     const sessionId = generateId()
