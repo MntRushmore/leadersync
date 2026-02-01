@@ -36,15 +36,21 @@ export function AboutPage() {
             <h3 class="text-3xl font-bold font-sketch mb-6 text-center transform rotate-1">
               🎯 Our Mission
             </h3>
+            <img
+              src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80"
+              alt="Student receiving guidance from a mentor at a whiteboard"
+              class="w-full h-56 object-cover rounded mb-6"
+              style="border-radius: 12px 20px 16px 24px"
+            />
             <p class="text-lg font-handwritten leading-relaxed mb-6">
-              At ConvoConnect, we believe that every student deserves access to the wisdom, 
-              guidance, and inspiration that comes from successful leaders and entrepreneurs. 
-              Too often, these valuable connections are limited by geography, network size, 
+              At ConvoConnect, we believe that every student deserves access to the wisdom,
+              guidance, and inspiration that comes from successful leaders and entrepreneurs.
+              Too often, these valuable connections are limited by geography, network size,
               or social barriers.
             </p>
             <p class="text-lg font-handwritten leading-relaxed">
-              We're breaking down those walls by creating a platform where meaningful 
-              conversations can happen instantly, randomly, and authentically - just like 
+              We're breaking down those walls by creating a platform where meaningful
+              conversations can happen instantly, randomly, and authentically - just like
               the chance encounters that often change lives forever.
             </p>
           </div>
@@ -56,10 +62,16 @@ export function AboutPage() {
             <h3 class="text-2xl font-bold font-sketch mb-4 text-center">
               💡 How It All Started
             </h3>
+            <img
+              src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=700&q=80"
+              alt="Students and professionals having an engaging conversation"
+              class="w-full h-48 object-cover rounded mb-4"
+              style="border-radius: 10px 18px 14px 20px"
+            />
             <p class="font-handwritten text-lg leading-relaxed">
-              The idea came from a simple observation: the most impactful conversations often 
-              happen by chance. A student sitting next to a CEO on a plane. A chance meeting 
-              at a coffee shop. A random encounter at a conference. These serendipitous moments 
+              The idea came from a simple observation: the most impactful conversations often
+              happen by chance. A student sitting next to a CEO on a plane. A chance meeting
+              at a coffee shop. A random encounter at a conference. These serendipitous moments
               can change entire career trajectories - but they're too rare and too dependent on luck.
             </p>
           </div>
@@ -103,6 +115,12 @@ export function AboutPage() {
             <h3 class="text-3xl font-bold font-sketch mb-8 transform rotate-1">
               📊 Our Impact (So Far!)
             </h3>
+            <img
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
+              alt="Teacher tutoring a student in a classroom setting"
+              class="w-full h-48 object-cover rounded mb-8"
+              style="border-radius: 12px 20px 16px 24px"
+            />
             <div class="grid md:grid-cols-3 gap-8">
               <div class="transform hover:scale-105 transition-transform">
                 <div class="text-4xl font-bold font-sketch text-blue-600 mb-2">2,847</div>
